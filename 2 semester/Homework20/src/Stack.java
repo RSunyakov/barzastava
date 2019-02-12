@@ -1,21 +1,23 @@
-import java.util.LinkedList;
 
-public class Stack {
-    private LinkedList<Character> linkedlist;
+public class Stack<T> {
+    private Node<T> first = null;
 
-    public Stack() {
-        linkedlist = new LinkedList<>();
+    public void push(T data) {
+        Node<T> n = new Node<>(data);
+        n.next = first;
+        first = n;
     }
 
-    public void push(char c) {
-        linkedlist.add(c);
-    }
-
-    public Character pop() {
-        return linkedlist.getLast();
+    public T pop() {
+        if (!this.isEmpty()) {
+            Node<T> temp = first;
+            first = first.next;
+            return temp.data;
+        }
+        return null;
     }
 
     public boolean isEmpty() {
-        return linkedlist.isEmpty();
+        return (first == null);
     }
 }
