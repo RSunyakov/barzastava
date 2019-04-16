@@ -18,7 +18,7 @@ public class Main {
         Student stud1 = new Student("Петя", 1, 1, "КФУ" );
         Student stud2 = new Student("Аркадий", 2, 2, "КФУ" );
         Student stud3 = new Student("Геннадий", 3, 3, "КФУ" );
-        Student stud4 = new Student("Владимир", 4, 4, "КФУ" );
+        Student stud4 = new Student("Владими", 4, 4, "КФУ" );
         ssg.add(stud1);
         ssg.add(stud2);
         ssg.add(stud3);
