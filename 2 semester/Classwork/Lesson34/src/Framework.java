@@ -16,7 +16,7 @@ public class Framework {
             typeParams[i] = params[i].getClass().getSimpleName();
         }
         for (int i = 0; i < typeParams.length; i++) {
-            if (typeParams[i].equals("Integer")) {     //Без этого не обойтись, почему то в varargs приходит Integer, а в исходном конструкторе студента обычный int
+            if (typeParams[i].equals("Integer")) {     //Без этого не обойтись, так как в varargs приходит Integer из за того, что он Object, а в исходном конструкторе студента обычный int
                 typeParams[i] = "int";
             }
         }
