@@ -10,11 +10,10 @@ public class CounterThread extends Thread{
 
     }
 
-    static final Object MUTEX = new Object();
     @Override
     public void run() {
         for (int i = start; i < end; i++) {
-            synchronized (MUTEX) {
+            synchronized (Main.MUTEX) {
                 Main.mainSum += arr[i];
             }
         }
