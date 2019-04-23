@@ -78,7 +78,7 @@ public class TLinkedList<T> {
 
         @Override
         public Stream<T> filter(Predicate<? super T> predicate) {
-            for (int i = 0; i < arrayList.size(); i++) {
+            for (int i = arrayList.size() - 1; i >= 0; i--) {
                 if (!predicate.test(arrayList.get(i))) {
                     arrayList.remove(i);
                 }
@@ -88,10 +88,11 @@ public class TLinkedList<T> {
 
         @Override
         public <R> Stream<R> map(Function<? super T, ? extends R> mapper) {
-            for (int i = 0; i < arrayList.size(); i++) {
-                mapper.apply(arrayList.get(i));
-            }
-            return (Stream<R>) this;
+                TLinkedList<R> tmpList = new TLinkedList<>();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    tmpList.add(mapper.apply(arrayList.get(i)));
+                }
+            return tmpList.stream();
         }
 
         @Override
