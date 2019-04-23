@@ -1,23 +1,23 @@
 
 public class Stack<T> {
-    private Node<T> first = null;
+    private TLinkedList<T> linkedList;
+
+    public Stack(TLinkedList<T> linkedList) {
+        this.linkedList = linkedList;
+    }
 
     public void push(T data) {
-        Node<T> n = new Node<>(data);
-        n.next = first;
-        first = n;
+       linkedList.insertFirst(data);
     }
 
-    public T pop() {
-        if (!this.isEmpty()) {
-            Node<T> temp = first;
-            first = first.next;
-            return temp.data;
+    public void pop() {
+        while(!linkedList.isEmpty()){
+            linkedList.deleteFirst();
         }
-        return null;
     }
 
-    public boolean isEmpty() {
-        return (first == null);
+    public void displayStack() {
+        System.out.println("  ");
+        linkedList.displayList();
     }
 }

@@ -5,4 +5,10 @@ public class Node<T> {
     public Node(T data) {
         this.data = data;
     }
+
+    public void displayNode() {
+        System.out.print(data);
+        System.out.print("  ");
+
+    }
 }
