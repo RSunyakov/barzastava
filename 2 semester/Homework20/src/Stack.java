@@ -20,4 +20,10 @@ public class Stack<T> {
         System.out.println("  ");
         linkedList.displayList();
     }
+
+    public boolean isEmpty() {
+        if (linkedList.isEmpty()) {
+            return true;
+        } else return false;
+    }
 }
