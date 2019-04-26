@@ -10,7 +10,7 @@ public class Product {
 
     public Product(String filename1, String filename2) {
         this.inputStream = new InputStreamReader(new File(filename1));
-        this.outputStream = outputStream;
+        this.outputStream = new OutputStreamWriter(new File(filename1))
     }
 
     public void produce() throws IOException {
