@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item list</title>
+    <script>
+        function getItems() {
+            var xhr = new XMLHttpRequest();
+            var url = '/item_list';
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var itemArr = JSON.parse(xhr.responseText);
+                    var itemTableElem = document.getElementById('item_list');
+                    var tableContent = '';
+                    tableContent = "<tr>" +
+                        "            <th>ID </th>\n" +
+                        "            <th>Наименование </th>\n" +
+                        "            <th>Цена </th>\n" +
+                        "        </tr>";
+                    var i = 0;
+                    itemArr.forEach(function (elem) {
+                        i++;
+                        tableContent += '<tr>' + '<td>' + elem.id_items + '</td>' + '<td>' + elem.name  + '</td>' +
+                          '<td>'  + elem.price + '</td>' + '</tr>';
+                    });
+                    itemTableElem.innerHTML = tableContent;
+                }
+            };
+            xhr.open("GET", url);
+            xhr.send();
+        }
+    </script>
+</head>
+<body onload = "getItems()">
+    <h1>Item list</h1>
+    <table id = "item_list">
+    </table>
+    <form method="post" action="/item_list">
+        <label for="id_item" >ID товара:</label>
+        <input id="id_item" type="text" name="id_item">
+        <button type = "submit">Добавить в корзину</button>
+    </form>
+    <form action = "order_list.html">
+        <button>Корзина</button>
+    </form>
+</body>
+</html>

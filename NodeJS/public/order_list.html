@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order List</title>
+    <script>
+        function getOrders() {
+            var xhr = new XMLHttpRequest();
+            var url = '/order_list';
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var itemArr = JSON.parse(xhr.responseText);
+                    var itemTableElem = document.getElementById('order_list');
+                    var tableContent = '';
+                    tableContent = "<tr>" +
+                        "            <th>ID товара </th>\n" +
+                        "            <th>Имя пользователя </th>\n" +
+                        "            <th>Фамилия пользователя </th>\n" +
+                        "        </tr>";
+                    var i = 0;
+                    itemArr.forEach(function (elem) {
+                        i++;
+                        tableContent += '<tr>' +  '<td>' + elem.item_id + '</td>' + '<td>' + elem.firstnameo  + '</td>' +
+                            '<td>'  + elem.secondnameo + '</td>' + '</tr>';
+                    });
+                    itemTableElem.innerHTML = tableContent;
+                }
+            };
+            xhr.open("GET", url);
+            xhr.send();
+        }
+    </script>
+</head>
+<body onload = "getOrders()">
+<h1>Order List</h1>
+<table id = "order_list">
+</table>
+<form action = "item_list.html">
+    <button>К товарам</button>
+</form>
+</body>
+</html>
