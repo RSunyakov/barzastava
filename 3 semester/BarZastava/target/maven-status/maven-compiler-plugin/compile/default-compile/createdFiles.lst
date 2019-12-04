@@ -1,0 +1,11 @@
+ru\kpfu\models\UserForHw.class
+ru\kpfu\repositories\CrudRepository.class
+ru\kpfu\repositories\CrudUserRepositoryImpl.class
+ru\kpfu\repositories\RowMapper.class
+ru\kpfu\db\DbConnection.class
+ru\kpfu\RegisterServlet.class
+ru\kpfu\models\User.class
+ru\kpfu\filters\EdgeFilter.class
+ru\kpfu\MainServlet.class
+ru\kpfu\RegisterFileServlet.class
+ru\kpfu\DisplayUserServlet.class
